@@ -1,0 +1,108 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Player</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>My Music Player</h1>
+    </header>
+    <main>
+        <section id="music-library">
+            <!-- Display a list of tracks with album covers and artist names -->
+        </section>
+        <section id="audio-controls">
+            <!-- Audio player controls (play, pause, next, previous, volume, progress bar) -->
+        </section>
+        <section id="playlist">
+            <!-- Playlist management (create, edit, delete playlists) -->
+        </section>
+    </main>
+    <footer>
+        <button id="shuffle-button">Shuffle</button>
+        <button id="repeat-button">Repeat</button>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+
+
+let musicTracks = [
+    {
+        title: "Track 1",
+        artist: "Artist 1",
+        albumCover: "cover1.jpg",
+        audioFile: "track1.mp3",
+    },
+   
+];
+
+let currentTrackIndex = 0;
+let isPlaying = false;
+
+
+function renderMusicLibrary() {
+    const musicLibrary = document.getElementById("music-library");
+    musicLibrary.innerHTML = '';
+
+    musicTracks.forEach((track, index) => {
+        const trackItem = document.createElement("div");
+        trackItem.className = "track-item";
+        trackItem.innerHTML = `
+            <img src="${track.albumCover}" alt="${track.title} - ${track.artist}">
+            <p>${track.title} - ${track.artist}</p>
+        `;
+        trackItem.addEventListener("click", () => playTrack(index));
+        musicLibrary.appendChild(trackItem);
+    });
+}
+
+
+function playTrack(index) {
+    
+}
+
+
+function togglePlayPause() {
+    if (isPlaying) {
+       
+    } else {
+        
+    }
+    isPlaying = !isPlaying;
+    
+}
+
+
+function playNextTrack() {
+    currentTrackIndex = (currentTrackIndex + 1) % musicTracks.length;
+    playTrack(currentTrackIndex);
+}
+
+
+function playPreviousTrack() {
+    currentTrackIndex = (currentTrackIndex - 1 + musicTracks.length) % musicTracks.length;
+    playTrack(currentTrackIndex);
+}
+
+
+function toggleShuffle() {
+    
+}
+
+
+function toggleRepeat() {
+   
+}
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    renderMusicLibrary();
+ 
+});
